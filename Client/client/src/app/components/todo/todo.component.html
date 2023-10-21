@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+
+<label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+<div class="relative">
+    <input type="search" id="default-search"
+        class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="Search..." [(ngModel)]="keyword" (input)="searchItem(keyword)">
+</div>
+
+
+<div class="flex justify-center items-center h-screen">
+    <div class="relative overflow-x-auto max-h-96" style="max-height: 384px;">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        todo id
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        userId
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        title
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        isComplate
+                    </th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let todo of searchTodos">
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{todo.id}}
+                    </th>
+                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{todo.userId}}
+                    </td>
+                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{todo.title}}
+                    </td>
+                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{todo.completed}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
